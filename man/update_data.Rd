@@ -4,8 +4,11 @@
 \alias{update_data}
 \title{Update Microbial Taxonomic Data}
 \usage{
-update_data()
+update_data(repo = "https://github.com/msberends/microorganisms")
+}
+\arguments{
+\item{repo}{a GitHub repository, which should contain '\verb{/data-raw/microorganisms.rds}', '\verb{/data-raw/microorganisms.codes.rds}' and '\verb{/data-raw/microorganisms.old.rds}'}
 }
 \description{
-Update Microbial Taxonomic Data
+Retrieve the latest microbial taxonomy data from GitHub.
 }

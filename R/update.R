@@ -23,45 +23,36 @@
 # how to conduct AMR data analysis: https://msberends.github.io/AMR/   #
 # ==================================================================== #
 
-
-check_for_updates <- function() {
-  is_new <- FALSE # put the check here, but how??
-  if (is_new && interactive()) {
-    message("An update of the microbial taxonomic reference data is publicly available on GitHub.\nRun microorganisms::update_data() to download and import it into R automatically.")
-  }
-}
-
 #' Update Microbial Taxonomic Data
+#'
+#' Retrieve the latest microbial taxonomy data from GitHub.
+#' @param repo a GitHub repository, which should contain '`/data-raw/microorganisms.rds`', '`/data-raw/microorganisms.codes.rds`' and '`/data-raw/microorganisms.old.rds`'
 #' @export
-update_data <- function() {
+update_data <- function(repo = "https://github.com/msberends/microorganisms") {
   current_version <- attributes(microorganisms)$last_updated
 
-  repo <- "https://github.com/msberends/microorganisms/raw/master/data-raw"
+  repo <- gsub("//", "/", paste0(repo, "/raw/master/data-raw"), fixed = TRUE)
 
   file1 <- "microorganisms"
   file2 <- "microorganisms.old"
   file3 <- "microorganisms.codes"
-  file4 <- "microorganisms.legacy"
 
   source1 <- paste0(repo, "/", file1, ".rds")
   source2 <- paste0(repo, "/", file2, ".rds")
   source3 <- paste0(repo, "/", file3, ".rds")
-  source4 <- paste0(repo, "/", file4, ".rds")
   tmp1 <- tempfile(pattern = file1, fileext = ".rds")
   tmp2 <- tempfile(pattern = file2, fileext = ".rds")
   tmp3 <- tempfile(pattern = file3, fileext = ".rds")
-  tmp4 <- tempfile(pattern = file4, fileext = ".rds")
   destination1 <- paste0(find.package("microorganisms"), "/", file1, ".rds")
   destination2 <- paste0(find.package("microorganisms"), "/", file2, ".rds")
   destination3 <- paste0(find.package("microorganisms"), "/", file3, ".rds")
-  destination4 <- paste0(find.package("microorganisms"), "/", file4, ".rds")
 
   answer <- utils::menu(choices = c("Yes", "No"),
               graphics = TRUE,
               title = paste0("This will download the newest microbial taxonomic reference data from GitHub and it will be saved to your local package folder.",
                              "\n\nSource:      ", dirname(source1),
                              "\nDestination: ", find.package("microorganisms"),
-                             "\n\nDo you agree that four RDS files from this repository will be saved to your local package folder?"))
+                             "\n\nDo you agree that three RDS files from this repository will be saved to your local package folder?"))
   if (answer != 1) {
     return(invisible())
   }
@@ -70,8 +61,6 @@ update_data <- function() {
     download.file(url = source1, destfile = tmp1)
     download.file(url = source2, destfile = tmp2)
     download.file(url = source3, destfile = tmp3)
-    download.file(url = source4, destfile = tmp4)
-    new_version <- 1 / a
   }, error = function(e) {
     stop(paste0("An error occurred, run microorganisms::update_data() to try again.\n",
                 "Error message: ", e$message),
@@ -82,5 +71,4 @@ update_data <- function() {
   file.rename(from = tmp1, to = destination1)
   file.rename(from = tmp2, to = destination2)
   file.rename(from = tmp3, to = destination3)
-  file.rename(from = tmp4, to = destination4)
 }

@@ -9,7 +9,7 @@ Authors@R: c(
            family = "Luz", given = c("Christian", "F."), email = "c.f.luz@umcg.nl", comment = c(ORCID = "0000-0001-5809-5995")),
     person(role = "ctb",
            family = "Hassing", given = c("Erwin", "E.", "A."), email = "e.hassing@certe.nl"))
-Description: Description: Data sets with recent microbial taxonomic records, as defined by LPSN
+Description: Data sets with recent microbial taxonomic records, as defined by LPSN
     <doi:10.1099/ijsem.0.004332>.
 Depends:
     R (>= 3.0.0)
