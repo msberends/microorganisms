@@ -31,15 +31,16 @@
 update_data <- function(repo = "https://github.com/msberends/microorganisms") {
   current_version <- attributes(microorganisms)$last_updated
 
-  repo <- gsub("//", "/", paste0(repo, "/raw/master/data-raw"), fixed = TRUE)
+  repo_full <- gsub("//", "/", paste0(repo, "/raw/master/data-raw"), fixed = TRUE)
+  repo_full <- gsub("https:/", "https://", repo_full, fixed = TRUE)
 
   file1 <- "microorganisms"
   file2 <- "microorganisms.old"
   file3 <- "microorganisms.codes"
 
-  source1 <- paste0(repo, "/", file1, ".rds")
-  source2 <- paste0(repo, "/", file2, ".rds")
-  source3 <- paste0(repo, "/", file3, ".rds")
+  source1 <- paste0(repo_full, "/", file1, ".rds")
+  source2 <- paste0(repo_full, "/", file2, ".rds")
+  source3 <- paste0(repo_full, "/", file3, ".rds")
   tmp1 <- tempfile(pattern = file1, fileext = ".rds")
   tmp2 <- tempfile(pattern = file2, fileext = ".rds")
   tmp3 <- tempfile(pattern = file3, fileext = ".rds")
@@ -50,7 +51,7 @@ update_data <- function(repo = "https://github.com/msberends/microorganisms") {
   answer <- utils::menu(choices = c("Yes", "No"),
               graphics = TRUE,
               title = paste0("This will download the newest microbial taxonomic reference data from GitHub and it will be saved to your local package folder.",
-                             "\n\nSource:      ", dirname(source1),
+                             "\n\nSource:      ", repo,
                              "\nDestination: ", find.package("microorganisms"),
                              "\n\nDo you agree that three RDS files from this repository will be saved to your local package folder?"))
   if (answer != 1) {
@@ -71,4 +72,13 @@ update_data <- function(repo = "https://github.com/msberends/microorganisms") {
   file.rename(from = tmp1, to = destination1)
   file.rename(from = tmp2, to = destination2)
   file.rename(from = tmp3, to = destination3)
+
+  message("Loading new data...", appendLF = FALSE)
+  tryCatch({
+    detach("package:microorganisms", unload = TRUE)
+    library(microorganisms)
+    message("OK.\nTaxonomic data were successfully updated.")
+  }, error = function(e) message("FAIL. Try to reload the package again. ", e$message))
+
+  return(invisible())
 }
