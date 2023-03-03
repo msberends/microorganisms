@@ -23,3 +23,5 @@
 ^data-raw$
 ^\.lintr$
 ^tests/testthat/_snaps$
+^logo.svg$
+^CRAN-SUBMISSION$

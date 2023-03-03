@@ -1,0 +1,53 @@
+# ==================================================================== #
+# TITLE                                                                #
+# microorganisms: An R Package for Microbial Taxonomy Reference Data   #
+#                                                                      #
+# SOURCE                                                               #
+# https://github.com/msberends/microorganisms                          #
+#                                                                      #
+# This R package is free software; you can freely use and distribute   #
+# it for both personal and commercial purposes under the terms of the  #
+# GNU General Public License version 2.0 (GNU GPL-2), as published by  #
+# the Free Software Foundation.                                        #
+# ==================================================================== #
+
+
+title: "microorganisms"
+url: "https://msberends.github.io/microorganisms/"
+
+template:
+  bootstrap: 5
+  bootswatch: "flatly"
+  # assets: "pkgdown/logos" # use logos in this folder
+  bslib:
+    code_font: {google: "Fira Code"}
+    # body-text-align: "justify"
+    line-height-base: 1.75
+    # the green "success" colour of this bootstrap theme should be the same as the green in our logo
+    success: "#128f76"
+    link-color: "#128f76"
+    light: "#128f76a6" # this is success with 60% alpha
+    # the template "info" is blue - this should be a green fitting our theme
+    info: "#60a799"
+    # make top bar a bit wider
+    navbar-padding-y: "0.5rem"
+  opengraph:
+    twitter:
+      creator: "@msberends"
+      card: summary_large_image
+
+news:
+  one_page: true
+  cran_dates: true
+
+footer:
+  structure:
+    left: [devtext]
+    right: [logo]
+  components:
+    devtext: '<code>microorganisms</code> (for R). Free and open-source, licenced under the <a target="_blank" href="https://github.com/msberends/microorganisms/blob/main/LICENSE">GNU General Public License version 2.0 (GPL-2)</a>.<br>Developed at the <a target="_blank" href="https://www.rug.nl">University of Groningen</a> and <a target="_blank" href="https://www.umcg.nl">University Medical Center Groningen</a> in The Netherlands.'
+    logo: '<a target="_blank" href="https://www.rug.nl"><img src="https://github.com/msberends/microorganisms/raw/main/pkgdown/logos/logo_rug.svg" style="max-width: 150px;"></a><a target="_blank" href="https://www.umcg.nl"><img src="https://github.com/msberends/microorganisms/raw/main/pkgdown/logos/logo_umcg.svg" style="max-width: 150px;"></a>'
+
+home:
+  sidebar:
+    structure: [toc, links, authors]
