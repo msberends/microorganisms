@@ -51,8 +51,8 @@ TAXONOMY_VERSION <- list(
 #' - `gbif_parent`\cr GBIF identifier of the parent taxon
 #' - `gbif_renamed_to`\cr GBIF identifier of the currently valid taxon
 #' - `source`\cr Either `r vector_or(microorganisms$source)` (see *Source*)
-#' - `prevalence`\cr Prevalence of the microorganism according to Bartlett *et al.* (2022, \doi{10.1099/mic.0.001269}), see [mo_matching_score()] for the full explanation
-#' - `snomed`\cr Systematized Nomenclature of Medicine (SNOMED) code of the microorganism, version of `r documentation_date(TAXONOMY_VERSION$SNOMED$accessed_date)` (see *Source*). Use [mo_snomed()] to retrieve it quickly, see [mo_property()].
+#' - `prevalence`\cr Prevalence of the microorganism according to Bartlett *et al.* (2022, \doi{10.1099/mic.0.001269})
+#' - `snomed`\cr Systematized Nomenclature of Medicine (SNOMED) code of the microorganism, version of `r documentation_date(TAXONOMY_VERSION$SNOMED$accessed_date)` (see *Source*)
 #' @details
 #' Please note that entries are only based on the List of Prokaryotic names with Standing in Nomenclature (LPSN) and the Global Biodiversity Information Facility (GBIF) (see below). Since these sources incorporate entries based on (recent) publications in the International Journal of Systematic and Evolutionary Microbiology (IJSEM), it can happen that the year of publication is sometimes later than one might expect.
 #' @section Included Taxa:

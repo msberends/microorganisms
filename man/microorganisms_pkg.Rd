@@ -2,8 +2,8 @@
 % Please edit documentation in R/a_package.R
 \docType{package}
 \name{microorganisms_pkg}
-\alias{microorganisms}
-\alias{microorganisms-package}
+\alias{microorganisms_pkg}
+\alias{_PACKAGE}
 \title{The \code{microorganisms} Package}
 \source{
 To cite 'microorganisms' in publications use:

@@ -28,6 +28,7 @@
 #' `r format(citation("microorganisms"), style = "bib")`
 #' }
 #' @name microorganisms_pkg
+#' @aliases microorganisms_pkg
 #' @keywords internal
 #' @rdname microorganisms_pkg
 "_PACKAGE"
