@@ -1,0 +1,105 @@
+/*
+# ==================================================================== #
+# TITLE                                                                #
+# microorganisms: An R Package for Microbial Taxonomy Reference Data   #
+#                                                                      #
+# SOURCE                                                               #
+# https://github.com/msberends/microorganisms                          #
+#                                                                      #
+# This R package is free software; you can freely use and distribute   #
+# it for both personal and commercial purposes under the terms of the  #
+# GNU General Public License version 2.0 (GNU GPL-2), as published by  #
+# the Free Software Foundation.                                        #
+# ==================================================================== #
+*/
+
+/* fix some footer issues with the logos */
+@media (min-width: 576px) {
+  footer .pkgdown-footer-right {
+    width: 300px;
+  }
+}
+@media (max-width: 575.98px) {
+  footer .pkgdown-footer-left {
+    text-align: center;
+  }
+    footer .pkgdown-footer-right {
+    text-align: center;
+  }
+}
+
+/* replace 'Developers' with 'Maintainers' */
+.developers h2 {
+  display: none;
+}
+.developers:before {
+  content: 'Maintainers';
+}
+
+/* marked words for after using the search box */
+mark, .mark {
+  background: var(--bs-light) !important;
+}
+
+/* smaller tables */
+.table {
+  font-size: 0.9em !important;
+}
+
+/* SYNTAX */
+/* These are simple changes for the syntax highlighting */
+pre {
+  font-size: 0.8em !important;
+}
+pre code {
+  /* never wrap code on smaller screens */
+  word-wrap: normal !important;
+  white-space: pre !important;
+}
+.ot, .dv, .fl, .cn, .at,
+.op a {
+  /* numbers, TRUE/FALSE and operators */
+  color: var(--bs-dark) !important;
+}
+pre .fu, .fu {
+  /* functions */
+  color: var(--bs-primary) !important;
+  font-weight: bold !important;
+  letter-spacing: -1px !important;
+}
+pre .st, .st {
+  /* strings, regular text */
+  color: var(--bs-info) !important;
+}
+pre .co, .co {
+  /* comments */
+  color: var(--bs-success) !important;
+  font-style: italic !important;
+}
+pre code .r-out,
+pre code .r-msg {
+  /* output of functions */
+  color: var(--bs-gray-600) !important;
+  font-style: normal !important;
+}
+code a[href],
+a[href] code,
+pre a[href],
+a code[href],
+a pre[href] {
+  /* adjusted colour for all real links; having href attribute */
+  color: var(--bs-success);
+  text-decoration: none;
+}
+a[href] {
+  text-decoration: none;
+}
+code a[href]:hover, code a[href]:focus,
+a[href] code:hover, a[href] code:focus,
+pre a[href]:hover, pre a[href]:focus,
+a code[href]:hover, a code[href]:focus,
+a pre[href]:hover, a pre[href]:focus,
+a[href]:hover, a[href]:focus {
+  /* adjusted colour for all real links; having href attribute */
+  text-decoration: underline;
+}
