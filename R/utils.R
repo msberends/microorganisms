@@ -11,9 +11,20 @@
 # the Free Software Foundation.                                        #
 # ==================================================================== #
 
+#' The `microorganisms` Package
+#'
+#' @description
+#' Welcome to the `microorganisms` package.
+#'
+#' The `microorganisms` package is a [free and open-source](https://msberends.github.io/microorganisms/#copyright) R data package with [zero dependencies](https://en.wikipedia.org/wiki/Dependency_hell) to work with recent data about the microbial taxonomy.
+#' @name package
+#' @aliases package
+#' @keywords internal
+#' @rdname package
+"_PACKAGE"
 
-# globalVariables(c(
-# ))
+
+# Additional Utils functions ----------------------------------------------------------------------
 
 format_included_data_number <- function(data) {
   if (is.data.frame(data)) {
