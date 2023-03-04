@@ -12,6 +12,6 @@
 # ==================================================================== #
 
 .onLoad <- function(lib, pkg) {
-  # be sure to print tibbles as tibbles
+  # be sure to print tibbles as tibbles, without depending on the 'tibble' package (to support old R versions)
   try(suppressWarnings(requireNamespace("tibble", quietly = TRUE)), silent = TRUE)
 }
