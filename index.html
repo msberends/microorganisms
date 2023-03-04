@@ -70,7 +70,32 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="the-microorganisms-r-package">The <code>microorganisms</code> R package<a class="anchor" aria-label="anchor" href="#the-microorganisms-r-package"></a>
 </h1></div>
-<p>This package contains reference data about microbial taxonomy. It was primarily meant for the <a href="https://github.com/msberends/AMR" class="external-link"><code>AMR</code></a> package, but can serve any other package or person.</p>
+<p>This data package contains the full microbial taxonomy, from kingdom to subspecies, from over 50,000 microorganisms. The version number of this package indicates when the data was last updated in the form <code>YYYY-MM-x</code>, where <code>x</code> is a CRAN submission sequence number (often <code>0</code>).</p>
+<p>This data package is primarily meant for (and was previously part of) the <a href="https://github.com/msberends/AMR" class="external-link"><code>AMR</code> package</a>, but can now serve any other package or person.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># calling the data without loading the package</span></span>
+<span></span>
+<span><span class="fu">microorganisms</span><span class="fu">::</span><span class="va"><a href="reference/microorganisms.html">microorganisms</a></span></span>
+<span><span class="co">#&gt; # A tibble: 52,142 × 22</span></span>
+<span><span class="co">#&gt;    mo       fulln…¹ status kingdom phylum class order family genus species subsp…² rank  ref   source lpsn </span></span>
+<span><span class="co">#&gt;    &lt;mo&gt;     &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;</span></span>
+<span><span class="co">#&gt;  1 B_GRAMN  (unkno… accep… Bacter… (unkn… "(un… "(un… "(unk… "(un… "(unkn… "(unkn… subs… NA    manua… NA   </span></span>
+<span><span class="co">#&gt;  2 B_GRAMP  (unkno… accep… Bacter… (unkn… "(un… "(un… "(unk… "(un… "(unkn… "(unkn… subs… NA    manua… NA   </span></span>
+<span><span class="co">#&gt;  3 B_ANAER  (unkno… accep… Bacter… (unkn… "(un… "(un… "(unk… "(un… "(unkn… "(unkn… subs… NA    manua… NA   </span></span>
+<span><span class="co">#&gt;  4 F_FUNGUS (unkno… accep… Fungi   (unkn… "(un… "(un… "(unk… "(un… "(unkn… "(unkn… subs… NA    manua… NA   </span></span>
+<span><span class="co">#&gt;  5 UNKNOWN  (unkno… accep… (unkno… (unkn… "(un… "(un… "(unk… "(un… "(unkn… "(unkn… subs… NA    manua… NA   </span></span>
+<span><span class="co">#&gt;  6 F_YEAST  (unkno… accep… Fungi   (unkn… "(un… "(un… "(unk… "(un… "(unkn… "(unkn… subs… NA    manua… NA   </span></span>
+<span><span class="co">#&gt;  7 B_[FAM]… Abditi… accep… Bacter… Abdit… "Abd… "Abd… "Abdi… ""    ""      ""      fami… Taho… LPSN   4812 </span></span>
+<span><span class="co">#&gt;  8 B_[ORD]… Abditi… accep… Bacter… Abdit… "Abd… "Abd… ""     ""    ""      ""      order Taho… LPSN   4982 </span></span>
+<span><span class="co">#&gt;  9 B_[CLS]… Abditi… accep… Bacter… Abdit… "Abd… ""    ""     ""    ""      ""      class Taho… LPSN   29679</span></span>
+<span><span class="co">#&gt; 10 B_[PHL]… Abditi… accep… Bacter… Abdit… ""    ""    ""     ""    ""      ""      phyl… Taho… LPSN   774  </span></span>
+<span><span class="co">#&gt; # … with 52,132 more rows, 7 more variables: lpsn_parent &lt;chr&gt;, lpsn_renamed_to &lt;chr&gt;, gbif &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   gbif_parent &lt;chr&gt;, gbif_renamed_to &lt;chr&gt;, prevalence &lt;dbl&gt;, snomed &lt;list&gt;, and abbreviated variable</span></span>
+<span><span class="co">#&gt; #   names ¹fullname, ²subspecies</span></span>
+<span><span class="co">#&gt; # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</span></span></code></pre></div>
+<p>The <a href="https://github.com/msberends/AMR" class="external-link"><code>AMR</code> package</a> contains functions to <a href="https://msberends.github.io/AMR/reference/as.mo.html" class="external-link">coerce arbitrary user input into valid microorganism codes</a> that exist in the <code>microorganisms</code> data set.</p>
+<hr>
+<p><small>This R package is licensed under the <a href="https://github.com/msberends/microorganisms/blob/main/LICENSE" class="external-link">GNU General Public License (GPL) v2.0</a>.</small></p>
 </div>
   </main><aside class="col-md-3"><div class="table-of-contents">
 <h2 data-toc-skip>Table of contents</h2>
