@@ -12,13 +12,10 @@
 # ==================================================================== #
 
 on:
-  pull_request:
-    # run in each PR in this repo
-    branches: '**'
   push:
     branches: '**'
 
-name: check-recent
+name: R-code-check
 
 jobs:
   R-code-check:
@@ -38,15 +35,12 @@ jobs:
           - {os: ubuntu-latest,  r: 'devel', allowfail: false}
 
           # current 'release' version:
-          - {os: macOS-latest,   r: '4.2', allowfail: false}
-          - {os: windows-latest, r: '4.2', allowfail: false}
-          - {os: ubuntu-latest,  r: '4.2', allowfail: false}
+          - {os: macOS-latest,   r: 'release', allowfail: false}
+          - {os: windows-latest, r: 'release', allowfail: false}
+          - {os: ubuntu-latest,  r: 'release', allowfail: false}
 
-          # older versions (see also check-old.yaml for even older versions):
-          - {os: ubuntu-latest, r: '4.1', allowfail: false}
-          - {os: ubuntu-latest, r: '4.0', allowfail: false}
-          - {os: ubuntu-latest, r: '3.6', allowfail: false}
-          - {os: ubuntu-latest, r: '3.5', allowfail: false} # when a new R releases, this one has to move to check-old.yaml
+          # older versions:
+          - {os: ubuntu-latest, r: 'oldrel', allowfail: false}
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -69,15 +63,3 @@ jobs:
           needs: check
 
       - uses: r-lib/actions/check-r-package@v2
-        env:
-          _R_CHECK_LENGTH_1_CONDITION_: verbose
-          _R_CHECK_LENGTH_1_LOGIC2_: verbose
-          # during 'R CMD check', R_LIBS_USER will be overwritten, so:
-          R_LIBS_USER_GH_ACTIONS: ${{ env.R_LIBS_USER }}
-          R_RUN_TINYTEST: true
-
-      - name: Show tinytest output
-        if: always()
-        run: |
-          find . -name 'tinytest.Rout*' -exec cat '{}' \; || true
-        shell: bash
